@@ -5,37 +5,76 @@
  * @since 2021-10-12
  */
 
+class ExampleTweets
+{
+	public static void main(String[] args)
+	{
+		User user1 = new User("naycyo","Natalie Young", 12);
+
+		String userOut = user1.toText();
+
+		System.out.println("user1: " + userOut);
+
+		Tweet tweet1 = new Tweet("The lazy brown dog..", user1, 800, "asdf");
+
+		String tweetOut = tweet1.toText();
+
+		System.out.println("tweet1: " + tweetOut);
+	}
+}
+
 class User
 {
-	String userName = "AdaLovelace";
-	String displayName = "Ada Lovelace";
-	int numberOfFollowers = 0;
+	String userName; 
+	String displayName;		//also called full name
+	int numberOfFollowers;
 
+	//Constructor takes a value for each field and initializes it
+	User(String userName, String displayName, int numberOfFollowers)
+	{
+		this.userName = userName;
+		this.displayName = displayName;
+		this.numberOfFollowers = numberOfFollowers;
+	}
+	
 	/**
-	 * Returns string that contains fullname followed by username of user
+	 * Returns string that contains fullname followed by space and at-symbol
+	 * before username
+	 *
+	 * @return text
 	 */
 	String toText()
 	{
 		String text = displayName + " @" + userName;
+
+		return text;
 	}
 }
 
 class Tweet
 {
-	String textContent = "The lazy brown dog...";
-	//TODO: User.userName;
-	int numberOfLikes = 0;
+	String textContent;
+	User author;
+	int numberOfLikes;
 	String uniqueID;
+
+	Tweet(String textContent, User author, int numberOfLikes, String uniqueID)
+	{
+		this.textContent = textContent;
+		this.author = author;
+		this.numberOfLikes = numberOfLikes;
+		this.uniqueID = uniqueID;
+	}
 
 	/**
 	 * Checks if this tweet is longer than other tweet
 	 *
 	 * @param other
 	 */
-	boolean longerThan(Tweet other)
+//	boolean longerThan(Tweet other)
 	{
-		if (this.textContent.len() > other.len())
-			return;
+//		if (textContent.len() > other.len())
+//			return true;
 	}
 
 	/**
@@ -43,10 +82,10 @@ class Tweet
 	 *
 	 * @param other
 	 */
-	boolean moreLikes(Tweet other)
+//	boolean moreLikes(Tweet other)
 	{
-		if (this.textContent.len() > other.len())
-			return;
+//		if (this.textContent.len() > other.len())
+//			return true;
 	}
 	
 	/**
@@ -56,7 +95,9 @@ class Tweet
 	 */
 	String toText()
 	{
-		String text = User.toText() + " : " + textContent + " : " + numberOfLikes;
+		String text = author.toText() + " : " + textContent + " : " +
+			numberOfLikes + " Likes";
+		
 		return text;
 	}
 
@@ -65,18 +106,14 @@ class Tweet
 	 *
 	 * @return objectURL
 	 */
-	String toLink()
+//	String toLink()
 	{
 		//TODO: return string representing URL for Tweet object
 		
-		return objectURL;
+//		return objectURL;
 	}
 }
 
 
 
-class ExampleTweets
-{
-	
-}
 
