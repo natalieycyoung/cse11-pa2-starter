@@ -3,6 +3,9 @@
  *
  * @author Natalie Young
  * @since 2021-10-13
+ *
+ * Collaboration: I consulted Sean Yen on how to get the associated batch file to show
+ * the example output.
  */
 
 class ExampleTweets
